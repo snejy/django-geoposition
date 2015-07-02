@@ -33,7 +33,7 @@ if (jQuery != undefined) {
                 $mapContainer = $('<div class="geoposition-map" />'),
                 $addressRow = $('<div class="geoposition-address" />'),
                 $searchRow = $('<div class="geoposition-search" />'),
-                $searchInput = $('<input>', {'type': 'search', 'placeholder': 'Start typing an address …'}),
+                $searchInput = $('<input>', {'type': 'search', 'placeholder': 'Start typing an address …', 'id': 'id_address-address'}),
                 $latitudeField = $container.find('input.geoposition:eq(0)'),
                 $longitudeField = $container.find('input.geoposition:eq(1)'),
                 latitude = parseFloat($latitudeField.val()) || null,
@@ -163,5 +163,9 @@ if (jQuery != undefined) {
                 doGeocode();
             });
         });
+        var input = /** @type {HTMLInputElement} */(
+            document.getElementById('id_address-address'));
+        var searchBox = new google.maps.places.SearchBox(
+            /** @type {HTMLInputElement} */(input));
     });
 })(django.jQuery);

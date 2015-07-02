@@ -21,7 +21,7 @@ class GeopositionWidget(forms.MultiWidget):
             return value.rsplit(',')
         if value:
             return [value.latitude, value.longitude]
-        return [None,None]
+        return [None, None]
 
     def format_output(self, rendered_widgets):
         return render_to_string('geoposition/widgets/geoposition.html', {
@@ -42,7 +42,7 @@ class GeopositionWidget(forms.MultiWidget):
 
     class Media:
         js = (
-            '//maps.google.com/maps/api/js?sensor=false',
+            '//maps.google.com/maps/api/js?sensor=false&libraries=places',
             'geoposition/geoposition.js',
         )
         css = {

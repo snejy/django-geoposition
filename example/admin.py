@@ -7,7 +7,7 @@ class PointOfInterestAdmin(admin.ModelAdmin):
 
     def position_map(self, instance):
         if instance.position is not None:
-            return '<img src="http://maps.googleapis.com/maps/api/staticmap?center=%(latitude)s,%(longitude)s&zoom=%(zoom)s&size=%(width)sx%(height)s&maptype=roadmap&markers=%(latitude)s,%(longitude)s&sensor=false&visual_refresh=true&scale=%(scale)s" width="%(width)s" height="%(height)s">' % {
+            return '<img src="http://maps.googleapis.com/maps/api/staticmap?center=%(latitude)s,%(longitude)s&zoom=%(zoom)s&size=%(width)sx%(height)s&maptype=roadmap&markers=%(latitude)s,%(longitude)s&sensor=false&visual_refresh=true&scale=%(scale)s" width="%(width)s" height="%(height)s"&libraries=places>' % {
                 'latitude': instance.position.latitude,
                 'longitude': instance.position.longitude,
                 'zoom': 15,
